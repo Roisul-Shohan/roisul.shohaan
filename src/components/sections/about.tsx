@@ -95,83 +95,23 @@ export default function About() {
             className="relative order-2 flex items-center justify-center md:order-1"
           >
             <TiltCard intensity={10} className="w-full max-w-md">
-              <div className="relative">
-                <div className="profile-blob absolute -inset-8 opacity-60" />
-                <div className="glass-card-strong relative aspect-square overflow-hidden rounded-3xl border-white/15 p-1.5 shadow-2xl">
-                  <div className="relative h-full w-full overflow-hidden rounded-2xl bg-surface-elevated/80">
-                    <div className="absolute inset-0 grid-bg opacity-40" />
-                    {/* Code-style snippet card */}
-                    <div className="relative h-full p-6 sm:p-7 flex flex-col justify-between font-mono text-[11px] sm:text-xs">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-                        <span className="ml-2 text-on-surface-variant/60 text-[10px] tracking-widest uppercase">
-                          roisul.json
-                        </span>
-                      </div>
+              <div className="relative aspect-[3/4]">
+                {/* Soft purple halo behind the photo (matches Hero treatment) */}
+                <div className="absolute inset-[-15%] photo-blob-halo rounded-[inherit] blur-2xl" />
 
-                      <div className="space-y-1 text-on-surface-variant leading-relaxed">
-                        <p>
-                          <span className="text-secondary">{"{"}</span>
-                        </p>
-                        <p className="pl-4">
-                          <span className="text-primary">&quot;name&quot;</span>
-                          <span className="text-white/60">: </span>
-                          <span className="text-green-300">&quot;Roisul Islam&quot;</span>
-                          <span className="text-white/60">,</span>
-                        </p>
-                        <p className="pl-4">
-                          <span className="text-primary">&quot;role&quot;</span>
-                          <span className="text-white/60">: </span>
-                          <span className="text-green-300">&quot;Full Stack Dev&quot;</span>
-                          <span className="text-white/60">,</span>
-                        </p>
-                        <p className="pl-4">
-                          <span className="text-primary">&quot;location&quot;</span>
-                          <span className="text-white/60">: </span>
-                          <span className="text-green-300">&quot;Sylhet, BD 🇧🇩&quot;</span>
-                          <span className="text-white/60">,</span>
-                        </p>
-                        <p className="pl-4">
-                          <span className="text-primary">&quot;education&quot;</span>
-                          <span className="text-white/60">: </span>
-                          <span className="text-green-300">&quot;B.Sc. CSE @ SUST&quot;</span>
-                          <span className="text-white/60">,</span>
-                        </p>
-                        <p className="pl-4">
-                          <span className="text-primary">&quot;stack&quot;</span>
-                          <span className="text-white/60">: [</span>
-                          <span className="text-green-300">&quot;MERN&quot;</span>
-                          <span className="text-white/60">, </span>
-                          <span className="text-green-300">&quot;Next.js&quot;</span>
-                          <span className="text-white/60">, </span>
-                          <span className="text-green-300">&quot;Python&quot;</span>
-                          <span className="text-white/60">, </span>
-                          <span className="text-green-300">&quot;Docker&quot;</span>
-                          <span className="text-white/60">, </span>
-                          <span className="text-green-300">&quot;Java&quot;</span>
-                          <span className="text-white/60">],</span>
-                        </p>
-                        <p className="pl-4">
-                          <span className="text-primary">&quot;available&quot;</span>
-                          <span className="text-white/60">: </span>
-                          <span className="text-secondary">true</span>
-                        </p>
-                        <p>
-                          <span className="text-secondary">{"}"}</span>
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between text-[10px] text-on-surface-variant/70">
-                        <span className="flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                          open to opportunities
-                        </span>
-                        <span>UTF-8</span>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface/70 via-transparent to-transparent" />
+                {/* Avatar — organic blob silhouette */}
+                <div className="absolute inset-0">
+                  <div className="photo-blob-clip photo-blob-morph relative h-full w-full overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="https://lh3.googleusercontent.com/d/1TBc8XkF9R9DjfphRCLHv0m9h3589VUOW=w1200"
+                      alt="Roisul Islam — Full Stack Developer"
+                      className="absolute inset-0 h-full w-full object-cover scale-[1.15] -translate-y-[2%]"
+                      style={{ objectPosition: 'center 22%' }}
+                      loading="lazy"
+                    />
+                    {/* Subtle bottom shading to anchor the figure */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface/70 via-surface/20 to-transparent mix-blend-multiply" />
                   </div>
                 </div>
 
