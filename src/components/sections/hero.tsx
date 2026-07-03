@@ -7,7 +7,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  Sparkles,
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -41,9 +40,9 @@ const itemVariants = {
 };
 
 const stats = [
-  { label: "Projects Shipped", value: 12 },
-  { label: "Technologies", value: 14 },
-  { label: "Cups of Coffee", value: 720 },
+  { label: "Projects Shipped", value: 6 },
+  { label: "Technologies", value: 12 },
+  { label: "Cups of Coffee", value: 480 },
 ];
 
 export default function Hero() {
@@ -97,9 +96,9 @@ export default function Hero() {
           >
             Crafting modern
             <br />
-            <span className="accent-text-gradient">React & Next.js</span>
+            <span className="accent-text-gradient">full-stack</span>
             <br />
-            <span className="text-shimmer">interfaces that feel alive.</span>
+            <span className="text-shimmer">web experiences.</span>
           </motion.h1>
 
           <motion.div
@@ -109,10 +108,10 @@ export default function Hero() {
             <span className="mr-2 text-on-surface-variant">I build</span>
             <TypingEffect
               words={[
-                "pixel-perfect UIs",
-                "fast web apps",
-                "design systems",
-                "interactive experiences",
+                "scalable web apps",
+                "RESTful APIs",
+                "dynamic UIs",
+                "full-stack solutions",
               ]}
               className="text-primary"
             />
@@ -122,9 +121,10 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-8 max-w-xl text-base leading-relaxed text-on-surface-variant sm:text-lg md:text-xl"
           >
-            I&apos;m <span className="font-semibold text-white">Israt</span>, a
-            frontend developer focused on building clean, responsive, and
-            interactive interfaces using React, Next.js, and modern UI tools.
+            I&apos;m <span className="font-semibold text-white">Roisul Islam</span>, a
+            CSE student and full-stack developer from Sylhet, Bangladesh. I
+            build scalable end-to-end web apps with the MERN stack, Next.js 15,
+            Python, Docker, and modern databases.
           </motion.p>
 
           <motion.div
@@ -180,9 +180,9 @@ export default function Hero() {
             <div className="h-px w-12 bg-white/10" />
             <div className="flex items-center gap-2">
               {[
-                { href: "https://github.com", Icon: Github, label: "GitHub" },
+                { href: "https://github.com/Roisul-Shohan", Icon: Github, label: "GitHub" },
                 {
-                  href: "https://linkedin.com",
+                  href: "https://www.linkedin.com/in/md-roisul-islam/",
                   Icon: Linkedin,
                   label: "LinkedIn",
                 },
@@ -219,28 +219,22 @@ export default function Hero() {
               style={{ y: imageY, scale: imageScale }}
               className="absolute inset-0"
             >
-              <div className="profile-blob absolute inset-0 scale-110" />
-              <div className="absolute inset-0 animate-[glow-pulse_4s_ease-in-out_infinite] rounded-3xl" />
+              {/* Soft purple halo behind the photo (matches the reference) */}
+              <div className="absolute inset-[-15%] photo-blob-halo rounded-[inherit] blur-2xl" />
 
-              {/* Avatar frame */}
-              <div className="absolute inset-2 overflow-hidden rounded-3xl border border-white/15 shadow-[0_30px_60px_-15px_rgba(192,103,255,0.45)] glass-card-strong">
-                <div className="absolute inset-0 grid-bg opacity-30" />
-                <div className="flex h-full w-full items-center justify-center">
-                  <div className="relative">
-                    <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl" />
-                    <Sparkles
-                      className="h-32 w-32 text-primary/60"
-                      strokeWidth={1}
-                    />
-                  </div>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface via-surface/40 to-transparent p-6">
-                  <p className="font-display text-2xl font-extrabold text-white">
-                    Israt
-                  </p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-secondary">
-                    Frontend Developer
-                  </p>
+              {/* Avatar — organic blob silhouette like the reference */}
+              <div className="absolute inset-0">
+                <div className="photo-blob-clip photo-blob-morph relative h-full w-full overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://lh3.googleusercontent.com/d/1TBc8XkF9R9DjfphRCLHv0m9h3589VUOW=w1200"
+                    alt="Roisul Islam — Full Stack Developer"
+                    className="absolute inset-0 h-full w-full object-cover scale-[1.15] -translate-y-[2%]"
+                    style={{ objectPosition: 'center 22%' }}
+                    loading="eager"
+                  />
+                  {/* Subtle bottom shading to anchor the figure */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface/70 via-surface/20 to-transparent mix-blend-multiply" />
                 </div>
               </div>
             </motion.div>
@@ -270,10 +264,10 @@ export default function Hero() {
               className="absolute -right-6 top-1/3 z-20 glass-card-strong rounded-2xl border border-white/15 px-4 py-3 shadow-2xl"
             >
               <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                Tech
+                Stack
               </p>
               <p className="mt-0.5 text-sm font-bold text-white">
-                React · Next.js
+                MERN · Next.js · Java
               </p>
             </motion.div>
 
@@ -291,7 +285,7 @@ export default function Hero() {
                 Speciality
               </p>
               <p className="mt-0.5 text-sm font-bold text-white">
-                UI Engineering
+                Full Stack Dev
               </p>
             </motion.div>
           </motion.div>

@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa6';
-import { SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiMysql, SiJavascript } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaGithub, FaJava, FaPython, FaGitAlt } from 'react-icons/fa6';
+import { SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiPostgresql, SiTypescript, SiPrisma, SiJsonwebtokens, SiMysql, SiDocker } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
 import FadeUp from '@/components/animated/fade-up';
@@ -19,18 +19,26 @@ interface TechItem {
 }
 
 const techItems: TechItem[] = [
-    { name: 'React', icon: FaReact, color: 'text-[#61dafb]', category: 'frontend' },
-    { name: 'Next.js', icon: SiNextdotjs, color: 'text-white', category: 'frontend' },
-    { name: 'JavaScript', icon: SiJavascript, color: 'text-[#f7df1e]', category: 'frontend' },
+    { name: 'React 19', icon: FaReact, color: 'text-[#61dafb]', category: 'frontend' },
+    { name: 'Next.js 15', icon: SiNextdotjs, color: 'text-white', category: 'frontend' },
+    { name: 'TypeScript', icon: SiTypescript, color: 'text-[#3178c6]', category: 'frontend' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#38bdf8]', category: 'frontend' },
     { name: 'Node.js', icon: FaNodeJs, color: 'text-[#339933]', category: 'backend' },
+    { name: 'Express.js', icon: SiExpress, color: 'text-white/80', category: 'backend' },
+    { name: 'Python', icon: FaPython, color: 'text-[#3776ab]', category: 'backend' },
+    { name: 'Java', icon: FaJava, color: 'text-[#ed8b00]', category: 'backend' },
     { name: 'MongoDB', icon: SiMongodb, color: 'text-[#47a248]', category: 'backend' },
-    { name: 'Express', icon: SiExpress, color: 'text-white/80', category: 'backend' },
+    { name: 'MySQL', icon: SiMysql, color: 'text-[#4479a1]', category: 'backend' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-[#336791]', category: 'backend' },
+    { name: 'Prisma', icon: SiPrisma, color: 'text-[#2d3748]', category: 'backend' },
+    { name: 'Docker', icon: SiDocker, color: 'text-[#2496ed]', category: 'tools' },
+    { name: 'Git', icon: FaGitAlt, color: 'text-[#f05032]', category: 'tools' },
+    { name: 'JWT Auth', icon: SiJsonwebtokens, color: 'text-[#d63aff]', category: 'tools' },
     { name: 'GitHub', icon: FaGithub, color: 'text-white', category: 'tools' },
 ];
 
 const marqueeStack = [
-    'React', 'Next.js', 'TypeScript', 'Tailwind', 'Framer Motion', 'GSAP', 'Three.js', 'Node.js', 'Express', 'MongoDB', 'MySQL', 'Git', 'GitHub', 'VS Code', 'Figma',
+    'React 19', 'Next.js 15', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'Python', 'Java', 'MongoDB', 'MySQL', 'PostgreSQL', 'Prisma', 'Docker', 'Git', 'JWT', 'NextAuth.js', 'Vercel', 'GitHub',
 ];
 
 export default function Skills() {
@@ -52,10 +60,7 @@ export default function Skills() {
     };
 
     const frontendSkills = techItems.filter((i) => i.category === 'frontend');
-    const backendSkills = [
-        ...techItems.filter((i) => i.category === 'backend'),
-        { name: 'MySQL', icon: SiMysql, color: 'text-[#4479a1]', category: 'backend' as const },
-    ];
+    const backendSkills = techItems.filter((i) => i.category === 'backend');
 
     return (
         <div className="scroll-mt-20 relative">
@@ -71,7 +76,7 @@ export default function Skills() {
                         Tech <span className="accent-text-gradient">Stack</span>
                     </h2>
                     <p className="text-on-surface-variant max-w-xl mx-auto mb-14 text-sm sm:text-base font-body">
-                        Tools & technologies I use to build modern, responsive applications.
+                        The MERN stack plus Next.js, Python, Docker, MySQL, Git, and Java — the tools I reach for daily.
                     </p>
                 </FadeUp>
 
@@ -128,13 +133,13 @@ export default function Skills() {
             <section id="skills" className="relative py-24 px-6 md:px-12 max-w-[1200px] mx-auto">
                 <FadeUp className="text-center mb-16">
                     <span className="text-secondary font-label font-bold tracking-[0.4em] uppercase mb-4 text-xs md:text-sm">
-                        Categorized Knowledge
+                        Frontend & Backend
                     </span>
                     <h2 className="font-display text-3xl sm:text-4xl font-extrabold mb-5 text-white leading-tight">
                         Skills & <span className="accent-text-gradient">Stack</span>
                     </h2>
                     <p className="text-on-surface-variant max-w-xl mx-auto text-sm sm:text-base font-body">
-                        Detailed breakdown of my current skills and backend technologies I am currently learning.
+                        A clear breakdown of my frontend and backend strengths across multiple stacks.
                     </p>
                 </FadeUp>
 
@@ -179,7 +184,7 @@ export default function Skills() {
                                 />
 
                                 <h3 className="text-center text-secondary font-display font-extrabold tracking-wider mb-10 text-lg sm:text-xl uppercase border-b border-white/10 pb-4">
-                                    Backend (Learning)
+                                    Backend & Databases
                                 </h3>
 
                                 <div className="grid grid-cols-2 gap-y-10 gap-x-4">
@@ -206,7 +211,7 @@ export default function Skills() {
                         <div className="grid grid-cols-3 gap-4 text-center">
                             <div>
                                 <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
-                                    <Counter value={8} suffix="+" />
+                                    <Counter value={16} suffix="+" />
                                 </div>
                                 <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-wider text-on-surface-variant sm:text-xs">
                                     Core skills

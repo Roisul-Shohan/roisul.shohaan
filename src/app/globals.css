@@ -176,6 +176,54 @@ body {
   }
 }
 
+/* ============================================================
+   Organic photo blob — asymmetric silhouette like the reference
+   ============================================================ */
+.photo-blob-clip {
+  /* Hand-drawn asymmetric blob: bulge upper-left, dip upper-right,
+     narrow waist, fuller base — mirrors the reference silhouette */
+  clip-path: path('M 220 60 C 360 40 480 120 500 280 C 520 460 420 600 320 720 C 220 820 80 800 60 620 C 40 460 100 320 140 220 C 160 160 180 80 220 60 Z');
+  -webkit-clip-path: path('M 220 60 C 360 40 480 120 500 280 C 520 460 420 600 320 720 C 220 820 80 800 60 620 C 40 460 100 320 140 220 C 160 160 180 80 220 60 Z');
+  filter: drop-shadow(0 25px 50px rgba(140, 50, 220, 0.55));
+}
+
+@keyframes blob-morph {
+  0%,
+  100% {
+    clip-path: path('M 220 60 C 360 40 480 120 500 280 C 520 460 420 600 320 720 C 220 820 80 800 60 620 C 40 460 100 320 140 220 C 160 160 180 80 220 60 Z');
+  }
+  50% {
+    clip-path: path('M 240 80 C 380 60 470 140 510 290 C 540 470 410 590 310 710 C 210 830 70 790 50 610 C 30 450 90 310 130 210 C 150 150 200 100 240 80 Z');
+  }
+}
+
+.photo-blob-morph {
+  animation: blob-morph 12s ease-in-out infinite;
+}
+
+@keyframes blob-halo {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+.photo-blob-halo {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(168, 85, 247, 0.55) 0%,
+    rgba(140, 60, 220, 0.4) 35%,
+    rgba(88, 28, 180, 0.15) 60%,
+    transparent 80%
+  );
+  animation: blob-halo 6s ease-in-out infinite;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

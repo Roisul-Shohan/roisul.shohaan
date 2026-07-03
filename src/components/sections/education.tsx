@@ -25,24 +25,24 @@ interface EducationItem {
 
 const education: EducationItem[] = [
     {
-        title: 'Diploma in Engineering',
-        institute: 'Mymensingh Polytechnic Institute',
-        location: 'Mymensingh, Bangladesh',
-        period: '2023 — Present',
+        title: 'B.Sc. in Computer Science & Engineering',
+        institute: 'Shahjalal University of Science and Technology',
+        location: 'Sylhet, Bangladesh',
+        period: '2023 — 2027',
         description:
-            'Currently pursuing a diploma focused on computer science fundamentals, software engineering principles, and modern web technologies.',
-        grade: 'Running',
+            'Currently pursuing my Bachelor&apos;s in CSE at SUST, with coursework spanning algorithms, data structures, software engineering, databases, AI, and modern web &amp; cloud technologies.',
+        grade: 'Ongoing',
         color: 'from-primary to-secondary',
         glow: 'shadow-[0_0_30px_-10px_rgba(192,103,255,0.6)]',
     },
     {
-        title: 'Secondary School Certificate (SSC)',
-        institute: 'Bhabanipur Adarsha High School',
-        location: 'Mymensingh, Bangladesh',
-        period: '2020 — 2022',
+        title: 'Higher Secondary Certificate (HSC)',
+        institute: 'Setabgang Govt College',
+        location: 'Setabgang, Bangladesh',
+        period: '2021 — 2023',
         description:
-            'Completed SSC with strong academic foundation in science, mathematics, and computer studies. This sparked my journey into programming.',
-        grade: 'GPA 4.28',
+            'Completed HSC in the Science group with A+, building a strong foundation in physics, chemistry, higher mathematics, and ICT — the spark that led me to programming.',
+        grade: 'A+',
         color: 'from-secondary to-primary',
         glow: 'shadow-[0_0_30px_-10px_rgba(255,171,227,0.6)]',
     },

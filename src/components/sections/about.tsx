@@ -7,7 +7,6 @@ import {
   Code2,
   Palette,
   Rocket,
-  Sparkles,
   Wrench,
 } from "lucide-react";
 
@@ -21,33 +20,33 @@ const highlights = [
   {
     icon: Code2,
     title: "Frontend Engineering",
-    description: "React, Next.js, TypeScript, Tailwind CSS",
+    description: "React 19, Next.js 15, TypeScript, Tailwind CSS, Framer Motion",
     color: "from-primary to-secondary",
   },
   {
-    icon: Wrench,
-    title: "Currently Learning",
-    description: "Node.js, Express, MongoDB, REST APIs",
+    icon: Rocket,
+    title: "Backend & APIs",
+    description: "Node.js, Express, Python, REST APIs, JWT, sessions, MVC pattern",
     color: "from-secondary to-primary",
   },
   {
-    icon: Palette,
-    title: "UI & Animation",
-    description: "Framer Motion, GSAP, accessibility",
+    icon: Wrench,
+    title: "Databases & DevOps",
+    description: "MongoDB, MySQL, PostgreSQL, Prisma, Docker, GridFS, Git",
     color: "from-primary-container to-secondary-container",
   },
   {
-    icon: Rocket,
-    title: "Performance",
-    description: "Lazy loading, SEO, 60 FPS interactions",
+    icon: Palette,
+    title: "Other Languages",
+    description: "Java (Servlets, JSP), EJS templating, academic coursework",
     color: "from-secondary-container to-primary",
   },
 ];
 
 const stats = [
-  { label: "Years learning", value: 3, suffix: "+" },
-  { label: "Side projects", value: 12, suffix: "+" },
-  { label: "Lines of code", value: 35, suffix: "k+" },
+  { label: "Public repos", value: 6, suffix: "+" },
+  { label: "Stacks shipped", value: 5, suffix: "+" },
+  { label: "Lines of code", value: 50, suffix: "k+" },
 ];
 
 export default function About() {
@@ -83,7 +82,7 @@ export default function About() {
               About <span className="accent-text-gradient">me</span>
             </>
           }
-          subtitle="I design and engineer interfaces that feel handcrafted — every interaction considered, every motion intentional."
+          subtitle="CSE student at SUST and full-stack developer turning real-world problems into scalable, end-to-end web apps."
         />
 
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-16 items-center">
@@ -99,22 +98,80 @@ export default function About() {
               <div className="relative">
                 <div className="profile-blob absolute -inset-8 opacity-60" />
                 <div className="glass-card-strong relative aspect-square overflow-hidden rounded-3xl border-white/15 p-1.5 shadow-2xl">
-                  <div className="relative h-full w-full overflow-hidden rounded-2xl">
-                    <div className="absolute inset-0 grid-bg opacity-50" />
-                    <div className="relative flex h-full w-full items-center justify-center">
-                      <Sparkles
-                        className="h-40 w-40 text-primary/50"
-                        strokeWidth={1}
-                      />
+                  <div className="relative h-full w-full overflow-hidden rounded-2xl bg-surface-elevated/80">
+                    <div className="absolute inset-0 grid-bg opacity-40" />
+                    {/* Code-style snippet card */}
+                    <div className="relative h-full p-6 sm:p-7 flex flex-col justify-between font-mono text-[11px] sm:text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
+                        <span className="ml-2 text-on-surface-variant/60 text-[10px] tracking-widest uppercase">
+                          roisul.json
+                        </span>
+                      </div>
+
+                      <div className="space-y-1 text-on-surface-variant leading-relaxed">
+                        <p>
+                          <span className="text-secondary">{"{"}</span>
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-primary">&quot;name&quot;</span>
+                          <span className="text-white/60">: </span>
+                          <span className="text-green-300">&quot;Roisul Islam&quot;</span>
+                          <span className="text-white/60">,</span>
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-primary">&quot;role&quot;</span>
+                          <span className="text-white/60">: </span>
+                          <span className="text-green-300">&quot;Full Stack Dev&quot;</span>
+                          <span className="text-white/60">,</span>
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-primary">&quot;location&quot;</span>
+                          <span className="text-white/60">: </span>
+                          <span className="text-green-300">&quot;Sylhet, BD 🇧🇩&quot;</span>
+                          <span className="text-white/60">,</span>
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-primary">&quot;education&quot;</span>
+                          <span className="text-white/60">: </span>
+                          <span className="text-green-300">&quot;B.Sc. CSE @ SUST&quot;</span>
+                          <span className="text-white/60">,</span>
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-primary">&quot;stack&quot;</span>
+                          <span className="text-white/60">: [</span>
+                          <span className="text-green-300">&quot;MERN&quot;</span>
+                          <span className="text-white/60">, </span>
+                          <span className="text-green-300">&quot;Next.js&quot;</span>
+                          <span className="text-white/60">, </span>
+                          <span className="text-green-300">&quot;Python&quot;</span>
+                          <span className="text-white/60">, </span>
+                          <span className="text-green-300">&quot;Docker&quot;</span>
+                          <span className="text-white/60">, </span>
+                          <span className="text-green-300">&quot;Java&quot;</span>
+                          <span className="text-white/60">],</span>
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-primary">&quot;available&quot;</span>
+                          <span className="text-white/60">: </span>
+                          <span className="text-secondary">true</span>
+                        </p>
+                        <p>
+                          <span className="text-secondary">{"}"}</span>
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-between text-[10px] text-on-surface-variant/70">
+                        <span className="flex items-center gap-1.5">
+                          <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+                          open to opportunities
+                        </span>
+                        <span>UTF-8</span>
+                      </div>
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface via-surface/40 to-transparent p-6">
-                      <p className="font-display text-2xl font-extrabold text-white">
-                        Hi, I&apos;m Israt.
-                      </p>
-                      <p className="mt-1 text-sm text-on-surface-variant">
-                        Builder of delightful, performant web apps.
-                      </p>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface/70 via-transparent to-transparent" />
                   </div>
                 </div>
 
@@ -128,7 +185,7 @@ export default function About() {
                     Based in
                   </p>
                   <p className="mt-0.5 text-sm font-bold text-white">
-                    🇧🇩 Bangladesh
+                    🇧🇩 Sylhet, BD
                   </p>
                 </motion.div>
 
@@ -143,10 +200,10 @@ export default function About() {
                   className="absolute -left-3 bottom-10 glass-card-strong rounded-2xl border-white/15 px-4 py-3 shadow-xl"
                 >
                   <p className="text-[10px] font-bold uppercase tracking-widest text-secondary">
-                    Focus
+                    Studying
                   </p>
                   <p className="mt-0.5 text-sm font-bold text-white">
-                    UI Engineering
+                    CSE @ SUST
                   </p>
                 </motion.div>
               </div>
@@ -157,15 +214,18 @@ export default function About() {
           <div className="order-1 flex flex-col md:order-2">
             <div className="space-y-6 text-on-surface-variant text-base leading-relaxed sm:text-lg">
               <p>
-                I&apos;m a passionate frontend developer who enjoys building clean,
-                responsive, and interactive web interfaces using React and
-                Next.js. I care about the small details — animation timing,
-                typography, and accessibility.
+                I&apos;m <span className="font-semibold text-white">Roisul Islam</span>, a
+                CSE student at Shahjalal University of Science and Technology
+                (SUST) in Sylhet, Bangladesh. I ship production-grade web apps
+                end-to-end — clean UI, scalable APIs, and databases that
+                don&apos;t buckle under pressure.
               </p>
               <p>
-                Currently, I&apos;m deepening my skills by learning backend
-                development with Node.js and Express.js to become a
-                well-rounded full-stack engineer.
+                My core toolkit is the MERN stack (MongoDB, Express, React,
+                Node) plus Next.js 15, TypeScript, Python, Docker, MySQL, and
+                Git. I&apos;ve also built enterprise coursework projects with
+                Java Servlets + JSP, and I love picking up new tooling as the
+                problem demands.
               </p>
             </div>
 

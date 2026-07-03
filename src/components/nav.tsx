@@ -63,11 +63,10 @@ export default function Nav() {
                 initial={{ y: -32, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-                    scrolled
+                className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled
                         ? 'bg-surface/70 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.4)]'
                         : 'bg-transparent'
-                }`}
+                    }`}
             >
                 <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 md:px-12">
                     {/* Logo */}
@@ -80,7 +79,7 @@ export default function Nav() {
                                 <Sparkles size={16} />
                             </span>
                             <span>
-                                Israt<span className="text-primary">.</span>
+                                Roisul<span className="text-primary">.</span>
                             </span>
                         </Link>
                     </Magnetic>

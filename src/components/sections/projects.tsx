@@ -2,11 +2,16 @@
 
 import { motion } from 'framer-motion';
 import {
+  SiNextdotjs,
   SiReact,
-  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPrisma,
   SiJavascript,
 } from 'react-icons/si';
-import { FaNewspaper, FaBookOpen, FaProjectDiagram } from 'react-icons/fa';
+import { FaJava } from 'react-icons/fa6';
+import { LuGraduationCap, LuShoppingCart, LuBrain, LuBookOpen } from 'react-icons/lu';
 import { ExternalLink, Github, Code2 } from 'lucide-react';
 
 import FadeUp from '@/components/animated/fade-up';
@@ -28,49 +33,64 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: 'SkillSphere',
+        title: 'CareerSphere',
         description:
-            'A skill exchange platform where users can post available skills and request lessons. Built with a fully responsive UI and dynamic category filtering.',
+            'AI-powered career development platform on Next.js 15 + React 19 with NextAuth.js, Prisma & PostgreSQL. Features AI interview prep, resume builder, cover letter generator, and a professional community feed.',
         tags: [
-            { name: 'React', icon: <SiReact />, color: 'text-[#61dafb]' },
-            { name: 'Tailwind', icon: <SiTailwindcss />, color: 'text-[#38bdf8]' },
-            { name: 'JavaScript', icon: <SiJavascript />, color: 'text-[#f7df1e]' },
+            { name: 'Next.js 15', icon: <SiNextdotjs />, color: 'text-white' },
+            { name: 'React 19', icon: <SiReact />, color: 'text-[#61dafb]' },
+            { name: 'Prisma + PostgreSQL', icon: <SiPrisma />, color: 'text-[#2d3748]' },
         ],
-        liveUrl: 'https://skill-exchange-2cd09.web.app',
-        repoUrl: 'https://github.com/isratsamanta21/skill-exchange-app',
+        liveUrl: 'https://career-sphere-ik2l.vercel.app/',
+        repoUrl: 'https://github.com/Roisul-Shohan/CAREER-SPHERE',
         glow: 'from-primary/40 via-secondary/20 to-transparent',
         accent: 'from-primary to-secondary',
-        emojiBg: <FaProjectDiagram />,
+        emojiBg: <LuBrain />,
     },
     {
-        title: 'Dragon News',
+        title: 'SCATCH — E-Commerce',
         description:
-            'A modern news portal featuring category filtering, article details, and a clean reading layout inspired by premium news apps.',
+            'Full-stack e-commerce app with Express.js, MongoDB, EJS templating, JWT auth, sessions, and Multer image uploads. Includes shopping cart, product management, and user profile editing.',
         tags: [
-            { name: 'React', icon: <SiReact />, color: 'text-[#61dafb]' },
-            { name: 'Tailwind', icon: <SiTailwindcss />, color: 'text-[#38bdf8]' },
-            { name: 'JavaScript', icon: <SiJavascript />, color: 'text-[#f7df1e]' },
+            { name: 'Node.js', icon: <SiNodedotjs />, color: 'text-[#339933]' },
+            { name: 'Express.js', icon: <SiExpress />, color: 'text-white/80' },
+            { name: 'MongoDB', icon: <SiMongodb />, color: 'text-[#47a248]' },
         ],
-        liveUrl: 'https://dragon-news-pro.firebaseapp.com',
-        repoUrl: 'https://github.com/isratsamanta21/dragon-news-app',
+        liveUrl: 'https://scatch-lac.vercel.app/',
+        repoUrl: 'https://github.com/Roisul-Shohan/SCATCH',
         glow: 'from-secondary/40 via-primary/20 to-transparent',
         accent: 'from-secondary to-primary',
-        emojiBg: <FaNewspaper />,
+        emojiBg: <LuShoppingCart />,
     },
     {
-        title: 'Book Vibe',
+        title: 'Learning Management System',
         description:
-            'A vibrant book-listing experience with favorites, sorting, and reading lists. Designed to celebrate the joy of reading.',
+            'An LMS platform with student & instructor portals, GridFS video streaming with byte-range support, progress tracking, quizzes, and admin-approved PDF certificates.',
         tags: [
-            { name: 'React', icon: <SiReact />, color: 'text-[#61dafb]' },
-            { name: 'CSS', icon: <SiTailwindcss />, color: 'text-[#38bdf8]' },
-            { name: 'JavaScript', icon: <SiJavascript />, color: 'text-[#f7df1e]' },
+            { name: 'Node.js', icon: <SiNodedotjs />, color: 'text-[#339933]' },
+            { name: 'Express', icon: <SiExpress />, color: 'text-white/80' },
+            { name: 'MongoDB GridFS', icon: <SiMongodb />, color: 'text-[#47a248]' },
         ],
-        liveUrl: 'https://endearing-fairy-007020.netlify.app',
-        repoUrl: 'https://github.com/isratsamanta21/Book-vibe-App',
+        liveUrl: 'https://learning-management-system-1-j300.onrender.com',
+        repoUrl: 'https://github.com/Roisul-Shohan/Learning-Management-System',
         glow: 'from-primary/40 via-secondary/30 to-transparent',
         accent: 'from-primary to-secondary-container',
-        emojiBg: <FaBookOpen />,
+        emojiBg: <LuGraduationCap />,
+    },
+    {
+        title: 'Course Management (Java)',
+        description:
+            'Role-based university course management system built with Java Servlets, JSP, and MongoDB. Separate admin / teacher / student portals with JWT auth, bcrypt password hashing, and Docker support.',
+        tags: [
+            { name: 'Java', icon: <FaJava />, color: 'text-[#ed8b00]' },
+            { name: 'MongoDB', icon: <SiMongodb />, color: 'text-[#47a248]' },
+            { name: 'JWT Auth', icon: <SiJavascript />, color: 'text-[#f7df1e]' },
+        ],
+        liveUrl: 'https://course-management-system-vdic.onrender.com/',
+        repoUrl: 'https://github.com/Roisul-Shohan/course-management-system',
+        glow: 'from-secondary/40 via-primary/20 to-transparent',
+        accent: 'from-secondary-container to-primary',
+        emojiBg: <LuBookOpen />,
     },
 ];
 
@@ -91,12 +111,12 @@ export default function Projects() {
                         Featured <span className="accent-text-gradient">projects</span>
                     </h2>
                     <p className="mt-5 text-base text-on-surface-variant sm:text-lg">
-                        A small selection of side projects that helped me grow as a frontend developer.
+                        Production-grade apps I&apos;ve shipped with the MERN stack, Next.js 15, Prisma, and Java.
                     </p>
                 </FadeUp>
 
                 <StaggerContainer
-                    className="grid gap-7 md:grid-cols-2 lg:grid-cols-3"
+                    className="grid gap-7 md:grid-cols-2"
                     stagger={0.12}
                 >
                     {projects.map((project) => (
@@ -180,13 +200,13 @@ export default function Projects() {
                 <FadeUp className="mt-14 text-center" delay={0.2}>
                     <Magnetic strength={0.2}>
                         <a
-                            href="https://github.com/isratsamanta21"
+                            href="https://github.com/Roisul-Shohan?tab=repositories"
                             target="_blank"
                             rel="noreferrer noopener"
                             className="inline-flex items-center gap-2 rounded-full glass-card border-white/15 px-6 py-3 text-sm font-bold text-white transition-all hover:border-primary/40 hover:shadow-[0_8px_30px_-12px_rgba(192,103,255,0.5)]"
                         >
                             <Code2 size={16} className="text-primary" />
-                            View more on GitHub
+                            View all 14 repositories on GitHub
                         </a>
                     </Magnetic>
                 </FadeUp>

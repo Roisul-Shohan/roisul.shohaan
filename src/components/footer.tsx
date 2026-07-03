@@ -1,17 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Heart, Mail } from 'lucide-react';
+import { Github, Linkedin, Heart, Mail } from 'lucide-react';
 
 import FadeUp from '@/components/animated/fade-up';
 import Magnetic from '@/components/animated/magnetic';
 import Marquee from '@/components/animated/marquee';
 
 const socials = [
-    { icon: Github, href: 'https://github.com/isratsamanta21', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/israt-jahan-921451345/', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:israt@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/Roisul-Shohan', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/md-roisul-islam/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:roisul192@gmail.com', label: 'Email' },
 ];
 
 const navLinks = [
@@ -50,10 +49,10 @@ export default function Footer() {
                         href="#home"
                         className="font-display text-2xl font-extrabold text-white"
                     >
-                        Israt<span className="text-primary">.</span>
+                        Roisul<span className="text-primary">.</span>
                     </Link>
                     <p className="mt-4 max-w-sm text-sm leading-relaxed text-on-surface-variant">
-                        A frontend developer crafting delightful, performant web experiences. Open to new projects &mdash; let&apos;s connect.
+                        A full-stack developer building performant, end-to-end web applications. Open to new projects &mdash; let&apos;s connect.
                     </p>
                 </FadeUp>
 
@@ -101,7 +100,7 @@ export default function Footer() {
             <div className="border-t border-white/5">
                 <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-on-surface-variant sm:flex-row md:px-12">
                     <p>
-                        © {new Date().getFullYear()} Israt Jahan. Crafted with{' '}
+                        © {new Date().getFullYear()} Roisul Islam. Crafted with{' '}
                         <Heart size={12} className="inline-block -translate-y-px text-primary" /> using
                         Next.js &amp; Framer Motion.
                     </p>

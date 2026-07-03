@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, CheckCircle2, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle2, Github, Linkedin } from 'lucide-react';
 
 import FadeUp from '@/components/animated/fade-up';
 import Magnetic from '@/components/animated/magnetic';
@@ -20,29 +20,28 @@ const contactInfo: ContactInfo[] = [
     {
         icon: Mail,
         label: 'Email',
-        value: 'israt@example.com',
-        href: 'mailto:israt@example.com',
+        value: 'roisul192@gmail.com',
+        href: 'mailto:roisul192@gmail.com',
         color: 'text-primary',
     },
     {
         icon: Phone,
         label: 'Phone',
-        value: '+880 1XXX-XXXXXX',
-        href: 'tel:+8801700000000',
+        value: '+880 1603-291012',
+        href: 'tel:+8801603291012',
         color: 'text-secondary',
     },
     {
         icon: MapPin,
         label: 'Location',
-        value: 'Mymensingh, Bangladesh',
+        value: 'Sylhet, Bangladesh',
         color: 'text-primary-container',
     },
 ];
 
 const socials = [
-    { icon: Github, href: 'https://github.com/isratsamanta21', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/israt-jahan-921451345/', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/Roisul-Shohan', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/md-roisul-islam/', label: 'LinkedIn' },
 ];
 
 export default function Contact() {
@@ -53,7 +52,7 @@ export default function Contact() {
         event.preventDefault();
         if (pending) return;
         setPending(true);
-        // Simulated submission — wire up to Formspree / Resend / API route here.
+        // TODO: wire up to Formspree / Resend / Next.js API route here.
         await new Promise((resolve) => setTimeout(resolve, 900));
         setPending(false);
         setSubmitted(true);
@@ -177,10 +176,10 @@ export default function Contact() {
                                 <p className="text-xs text-on-surface-variant">
                                     Or email me directly at{' '}
                                     <a
-                                        href="mailto:israt@example.com"
+                                        href="mailto:roisul192@gmail.com"
                                         className="font-semibold text-primary hover:underline"
                                     >
-                                        israt@example.com
+                                        roisul192@gmail.com
                                     </a>
                                 </p>
 
@@ -220,7 +219,7 @@ export default function Contact() {
                                         <div className="flex items-center gap-3 rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-3.5 backdrop-blur-md">
                                             <CheckCircle2 size={20} className="text-emerald-300" />
                                             <p className="text-sm font-bold text-emerald-100">
-                                                Message sent — I&apos;ll reply soon!
+                                                Message sent &mdash; I&apos;ll reply soon!
                                             </p>
                                         </div>
                                     </motion.div>
