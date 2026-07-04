@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, Heart, Mail } from 'lucide-react';
+import { Github, Linkedin, Heart, Mail, FileDown } from 'lucide-react';
 
 import FadeUp from '@/components/animated/fade-up';
 import Magnetic from '@/components/animated/magnetic';
@@ -11,6 +11,11 @@ const socials = [
     { icon: Github, href: 'https://github.com/Roisul-Shohan', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/md-roisul-islam/', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:roisul192@gmail.com', label: 'Email' },
+    {
+        icon: FileDown,
+        href: 'https://drive.google.com/uc?export=download&id=1Uof-mJu3Yv9chbuSU7epUaai3Jbj9vMl',
+        label: 'Download Resume',
+    },
 ];
 
 const navLinks = [
