@@ -1,32 +1,33 @@
 "use client";
 
+"use client";
+
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
-import {
-  Code2,
-  Palette,
-  Rocket,
-  Wrench,
-} from "lucide-react";
+import { Code2, Palette, Rocket, Wrench } from "lucide-react";
 
 import Counter from "@/components/animated/counter";
-import TiltCard from "@/components/animated/tilt-card";
-import StaggerContainer, { staggerItemVariants } from "@/components/animated/stagger-container";
+import StaggerContainer, {
+  staggerItemVariants,
+} from "@/components/animated/stagger-container";
 import SectionHeader from "@/components/sections/_section-header";
 import BlobBackground from "@/components/animated/blob-background";
+import PhotoFrame from "@/components/photo-frame";
 
 const highlights = [
   {
     icon: Code2,
     title: "Frontend Engineering",
-    description: "React 19, Next.js 15, TypeScript, Tailwind CSS, Framer Motion",
+    description:
+      "React 19, Next.js 15, TypeScript, Tailwind CSS, Framer Motion",
     color: "from-primary to-secondary",
   },
   {
     icon: Rocket,
     title: "Backend & APIs",
-    description: "Node.js, Express, Python, REST APIs, JWT, sessions, MVC pattern",
+    description:
+      "Node.js, Express, Python, REST APIs, JWT, sessions, MVC pattern",
     color: "from-secondary to-primary",
   },
   {
@@ -74,7 +75,7 @@ export default function About() {
     >
       <BlobBackground variant="compact" />
 
-      <div className="mx-auto max-w-[1200px]">
+      <div className="mx-auto max-w-300">
         <SectionHeader
           eyebrow="Background"
           title={
@@ -94,68 +95,18 @@ export default function About() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative order-2 flex items-center justify-center md:order-1"
           >
-            <TiltCard intensity={10} className="w-full max-w-md">
-              <div className="relative aspect-[3/4]">
-                {/* Soft purple halo behind the photo (matches Hero treatment) */}
-                <div className="absolute inset-[-15%] photo-blob-halo rounded-[inherit] blur-2xl" />
-
-                {/* Avatar — organic blob silhouette */}
-                <div className="absolute inset-0">
-                  <div className="photo-blob-clip photo-blob-morph relative h-full w-full overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="https://lh3.googleusercontent.com/d/1TBc8XkF9R9DjfphRCLHv0m9h3589VUOW=w1200"
-                      alt="Roisul Islam — Full Stack Developer"
-                      className="absolute inset-0 h-full w-full object-cover scale-[1.15] -translate-y-[2%]"
-                      style={{ objectPosition: 'center 22%' }}
-                      loading="lazy"
-                    />
-                    {/* Subtle bottom shading to anchor the figure */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface/70 via-surface/20 to-transparent mix-blend-multiply" />
-                  </div>
-                </div>
-
-                {/* Decorative chips */}
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-4 top-12 glass-card-strong rounded-2xl border-white/15 px-4 py-3 shadow-xl"
-                >
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-primary">
-                    Based in
-                  </p>
-                  <p className="mt-0.5 text-sm font-bold text-white">
-                    🇧🇩 Sylhet, BD
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.5,
-                  }}
-                  className="absolute -left-3 bottom-10 glass-card-strong rounded-2xl border-white/15 px-4 py-3 shadow-xl"
-                >
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-secondary">
-                    Studying
-                  </p>
-                  <p className="mt-0.5 text-sm font-bold text-white">
-                    CSE @ SUST
-                  </p>
-                </motion.div>
-              </div>
-            </TiltCard>
+            <div className="w-full max-w-md">
+              <PhotoFrame loading="lazy" />
+            </div>
           </motion.div>
 
           {/* Bio + Highlights Side */}
           <div className="order-1 flex flex-col md:order-2">
             <div className="space-y-6 text-on-surface-variant text-base leading-relaxed sm:text-lg">
               <p>
-                I&apos;m <span className="font-semibold text-white">Roisul Islam</span>, a
-                CSE student at Shahjalal University of Science and Technology
+                I&apos;m{" "}
+                <span className="font-semibold text-white">Roisul Islam</span>,
+                a CSE student at Shahjalal University of Science and Technology
                 (SUST) in Sylhet, Bangladesh. I ship production-grade web apps
                 end-to-end — clean UI, scalable APIs, and databases that
                 don&apos;t buckle under pressure.
@@ -199,10 +150,10 @@ export default function About() {
                   className="group glass-card relative overflow-hidden rounded-2xl border-white/10 p-5 transition-shadow hover:shadow-[0_20px_40px_-15px_rgba(192,103,255,0.4)]"
                 >
                   <div
-                    className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${item.color} opacity-60`}
+                    className={`absolute inset-x-0 top-0 h-px bg-linear-to-r ${item.color} opacity-60`}
                   />
                   <div
-                    className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${item.color} text-white shadow-lg`}
+                    className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br ${item.color} text-white shadow-lg`}
                   >
                     <item.icon size={18} />
                   </div>

@@ -141,7 +141,11 @@ body {
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(192, 103, 255, 0.5), rgba(255, 150, 178, 0.5));
+  background: linear-gradient(
+    135deg,
+    rgba(192, 103, 255, 0.5),
+    rgba(255, 150, 178, 0.5)
+  );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -179,49 +183,28 @@ body {
 /* ============================================================
    Organic photo blob — asymmetric silhouette like the reference
    ============================================================ */
-.photo-blob-clip {
-  /* Hand-drawn asymmetric blob: bulge upper-left, dip upper-right,
-     narrow waist, fuller base — mirrors the reference silhouette */
-  clip-path: path('M 220 60 C 360 40 480 120 500 280 C 520 460 420 600 320 720 C 220 820 80 800 60 620 C 40 460 100 320 140 220 C 160 160 180 80 220 60 Z');
-  -webkit-clip-path: path('M 220 60 C 360 40 480 120 500 280 C 520 460 420 600 320 720 C 220 820 80 800 60 620 C 40 460 100 320 140 220 C 160 160 180 80 220 60 Z');
-  filter: drop-shadow(0 25px 50px rgba(140, 50, 220, 0.55));
-}
-
-@keyframes blob-morph {
-  0%,
-  100% {
-    clip-path: path('M 220 60 C 360 40 480 120 500 280 C 520 460 420 600 320 720 C 220 820 80 800 60 620 C 40 460 100 320 140 220 C 160 160 180 80 220 60 Z');
-  }
-  50% {
-    clip-path: path('M 240 80 C 380 60 470 140 510 290 C 540 470 410 590 310 710 C 210 830 70 790 50 610 C 30 450 90 310 130 210 C 150 150 200 100 240 80 Z');
-  }
-}
-
-.photo-blob-morph {
-  animation: blob-morph 12s ease-in-out infinite;
-}
-
-@keyframes blob-halo {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.75;
-    transform: scale(1.05);
-  }
-}
-
-.photo-blob-halo {
+.photo-blob-shell {
   background: radial-gradient(
-    ellipse at center,
-    rgba(168, 85, 247, 0.55) 0%,
-    rgba(140, 60, 220, 0.4) 35%,
-    rgba(88, 28, 180, 0.15) 60%,
-    transparent 80%
+    circle at 50% 34%,
+    rgba(160, 86, 210, 0.9) 0%,
+    rgba(112, 52, 154, 0.9) 40%,
+    rgba(74, 31, 110, 0.96) 70%,
+    rgba(54, 21, 86, 1) 100%
   );
-  animation: blob-halo 6s ease-in-out infinite;
+  border: 1px solid rgba(236, 214, 255, 0.14);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 60px rgba(0, 0, 0, 0.14);
+}
+
+.photo-blob-clip {
+  /* Shield-like silhouette on a 600×520 canvas matching the reference. */
+  clip-path: path(
+    "M 178 72 C 260 42 354 41 438 62 C 514 81 559 137 565 208 C 571 290 545 376 492 437 C 444 492 366 520 279 518 C 194 516 124 489 82 426 C 42 365 38 274 53 199 C 68 131 106 89 151 73 C 160 70 169 69 178 72 Z"
+  );
+  -webkit-clip-path: path(
+    "M 178 72 C 260 42 354 41 438 62 C 514 81 559 137 565 208 C 571 290 545 376 492 437 C 444 492 366 520 279 518 C 194 516 124 489 82 426 C 42 365 38 274 53 199 C 68 131 106 89 151 73 C 160 70 169 69 178 72 Z"
+  );
 }
 
 @keyframes marquee {
@@ -394,7 +377,11 @@ body {
     linear-gradient(to bottom, rgba(227, 181, 255, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 30%,
+    transparent 75%
+  );
 }
 
 .grid-bg-animated {
@@ -402,10 +389,17 @@ body {
 }
 
 .dot-bg {
-  background-image: radial-gradient(rgba(227, 181, 255, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(
+    rgba(227, 181, 255, 0.15) 1px,
+    transparent 1px
+  );
   background-size: 24px 24px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 20%,
+    transparent 70%
+  );
 }
 
 .noise-overlay {
@@ -484,7 +478,9 @@ body {
 .page-transition-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 600ms ease, transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 600ms ease,
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ============================================================

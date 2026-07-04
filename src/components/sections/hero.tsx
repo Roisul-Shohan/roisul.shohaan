@@ -2,20 +2,15 @@
 
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  ArrowUpRight,
-  Github,
-  Linkedin,
-  Mail,
-} from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, FileDown } from "lucide-react";
 import { useRef } from "react";
 
 import Magnetic from "@/components/animated/magnetic";
 import Parallax from "@/components/animated/parallax";
 import Counter from "@/components/animated/counter";
 import TypingEffect from "@/components/animated/typing-effect";
+import PhotoFrame from "@/components/photo-frame";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 const HeroBackground = dynamic(
   () => import("@/components/three/hero-background"),
@@ -64,7 +59,7 @@ export default function Hero() {
       {/* Three.js animated hero background */}
       <div className="absolute inset-0 -z-10">
         <HeroBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-surface/30 via-transparent to-surface" />
+        <div className="absolute inset-0 bg-linear-to-b from-surface/30 via-transparent to-surface" />
         <div className="absolute inset-0 grid-bg opacity-50" />
       </div>
 
@@ -73,23 +68,10 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
         style={{ y: textY }}
-        className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-12 px-6 md:grid-cols-12 md:px-12"
+        className="relative z-10 mx-auto grid w-full max-w-300 items-center gap-12 px-6 md:grid-cols-12 md:px-12"
       >
         {/* Left Column */}
         <div className="z-10 flex flex-col items-start text-left md:col-span-7">
-          <motion.div variants={itemVariants}>
-            <Badge
-              variant="primary"
-              className="mb-6 gap-2 px-4 py-1.5 text-xs"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              Available for new opportunities
-            </Badge>
-          </motion.div>
-
           <motion.h1
             variants={itemVariants}
             className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
@@ -121,7 +103,8 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-8 max-w-xl text-base leading-relaxed text-on-surface-variant sm:text-lg md:text-xl"
           >
-            I&apos;m <span className="font-semibold text-white">Roisul Islam</span>, a
+            I&apos;m{" "}
+            <span className="font-semibold text-white">Roisul Islam</span>, a
             CSE student and full-stack developer from Sylhet, Bangladesh. I
             build scalable end-to-end web apps with the MERN stack, Next.js 15,
             Python, Docker, and modern databases.
@@ -136,6 +119,19 @@ export default function Hero() {
                 <a href="#projects" className="flex items-center gap-2">
                   View My Work
                   <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </Button>
+            </Magnetic>
+            <Magnetic strength={0.3}>
+              <Button asChild size="lg" variant="outline" className="group">
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1Uof-mJu3Yv9chbuSU7epUaai3Jbj9vMl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <FileDown className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+                  Resume
                 </a>
               </Button>
             </Magnetic>
@@ -180,7 +176,11 @@ export default function Hero() {
             <div className="h-px w-12 bg-white/10" />
             <div className="flex items-center gap-2">
               {[
-                { href: "https://github.com/Roisul-Shohan", Icon: Github, label: "GitHub" },
+                {
+                  href: "https://github.com/Roisul-Shohan",
+                  Icon: Github,
+                  label: "GitHub",
+                },
                 {
                   href: "https://www.linkedin.com/in/md-roisul-islam/",
                   Icon: Linkedin,
@@ -212,81 +212,13 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            className="relative aspect-[3/4] w-full max-w-sm"
+            className="relative aspect-3/4 w-full max-w-sm"
           >
-            {/* Glow + Blob */}
             <motion.div
               style={{ y: imageY, scale: imageScale }}
               className="absolute inset-0"
             >
-              {/* Soft purple halo behind the photo (matches the reference) */}
-              <div className="absolute inset-[-15%] photo-blob-halo rounded-[inherit] blur-2xl" />
-
-              {/* Avatar — organic blob silhouette like the reference */}
-              <div className="absolute inset-0">
-                <div className="photo-blob-clip photo-blob-morph relative h-full w-full overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://lh3.googleusercontent.com/d/1TBc8XkF9R9DjfphRCLHv0m9h3589VUOW=w1200"
-                    alt="Roisul Islam — Full Stack Developer"
-                    className="absolute inset-0 h-full w-full object-cover scale-[1.15] -translate-y-[2%]"
-                    style={{ objectPosition: 'center 22%' }}
-                    loading="eager"
-                  />
-                  {/* Subtle bottom shading to anchor the figure */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface/70 via-surface/20 to-transparent mix-blend-multiply" />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Floating badges */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-4 top-12 z-20 glass-card-strong rounded-2xl border border-white/15 px-4 py-3 shadow-2xl"
-            >
-              <div className="flex items-center gap-2">
-                <div className="h-2.5 w-2.5 animate-pulse rounded-full bg-green-400" />
-                <span className="text-xs font-semibold text-white">
-                  Building daily
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
-              className="absolute -right-6 top-1/3 z-20 glass-card-strong rounded-2xl border border-white/15 px-4 py-3 shadow-2xl"
-            >
-              <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                Stack
-              </p>
-              <p className="mt-0.5 text-sm font-bold text-white">
-                MERN · Next.js · Java
-              </p>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1,
-              }}
-              className="absolute -bottom-2 left-2 z-20 glass-card-strong rounded-2xl border border-white/15 px-4 py-3 shadow-2xl"
-            >
-              <p className="text-[10px] font-bold uppercase tracking-widest text-secondary">
-                Speciality
-              </p>
-              <p className="mt-0.5 text-sm font-bold text-white">
-                Full Stack Dev
-              </p>
+              <PhotoFrame loading="eager" />
             </motion.div>
           </motion.div>
         </Parallax>
