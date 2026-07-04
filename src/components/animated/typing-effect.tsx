@@ -49,7 +49,15 @@ export default function TypingEffect({
     }
 
     return () => clearTimeout(timer);
-  }, [text, deleting, wordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [
+    text,
+    deleting,
+    wordIndex,
+    words,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+  ]);
 
   return (
     <span className={className} aria-live="polite">
@@ -61,7 +69,7 @@ export default function TypingEffect({
       >
         {text}
       </motion.span>
-      <span className="inline-block w-[2px] h-[1em] align-middle ml-1 bg-primary animate-pulse" />
+      <span className="inline-block w-0.5 h-[1em] align-middle ml-1 bg-primary animate-pulse" />
     </span>
   );
 }

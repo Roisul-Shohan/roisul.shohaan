@@ -7,18 +7,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "accent-gradient text-surface hover:shadow-[0_0_24px_rgba(192,103,255,0.35)] hover:-translate-y-0.5 active:translate-y-0",
+          "border border-white/10 bg-primary-container text-white shadow-none hover:bg-primary/90 hover:border-primary/50 hover:-translate-y-0.5 active:translate-y-0",
         ghost:
-          "border border-white/10 bg-white/[0.02] text-white hover:border-primary/40 hover:bg-white/5 hover:-translate-y-0.5",
+          "border border-white/10 bg-surface-container-high/70 text-white hover:border-primary/40 hover:bg-surface-container-high hover:-translate-y-0.5",
         outline:
-          "border border-white/10 bg-transparent text-white hover:border-primary/40 hover:bg-white/5",
+          "border border-white/10 bg-transparent text-white hover:border-primary/40 hover:bg-surface-container-high/50",
         secondary:
-          "bg-secondary/15 text-secondary border border-secondary/25 hover:bg-secondary/25 hover:-translate-y-0.5",
+          "border border-secondary/25 bg-secondary/15 text-white hover:bg-secondary/25 hover:-translate-y-0.5",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -36,7 +36,8 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
