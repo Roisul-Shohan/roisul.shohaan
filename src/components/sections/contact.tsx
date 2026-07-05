@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
@@ -10,11 +11,18 @@ import {
   CheckCircle2,
   Github,
   Linkedin,
+  AlertCircle,
 } from "lucide-react";
 
 import FadeUp from "@/components/animated/fade-up";
 import Magnetic from "@/components/animated/magnetic";
 import BlobBackground from "@/components/animated/blob-background";
+
+// EmailJS — public config (these keys are designed to be exposed to the browser)
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+const EMAILJS_TEMPLATE_INBOUND = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_INBOUND ?? "";
+const EMAILJS_TEMPLATE_AUTOREPLY = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_AUTOREPLY ?? "";
 
 interface ContactInfo {
   icon: React.ComponentType<{ size?: number; className?: string }>;
@@ -59,17 +67,70 @@ const socials = [
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (pending) return;
     setPending(true);
-    // TODO: wire up to Formspree / Resend / Next.js API route here.
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setPending(false);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    (event.target as HTMLFormElement).reset();
+    setError(null);
+
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+    const visitorEmail = String(data.get("email") ?? "").trim();
+    // Template variables must match what each EmailJS template uses:
+    //   {{name}}, {{email}}, {{subject}}, {{message}}, {{reply_to}}
+    const params = {
+      name: String(data.get("name") ?? "").trim(),
+      email: visitorEmail,
+      subject: String(data.get("subject") ?? "").trim(),
+      message: String(data.get("message") ?? "").trim(),
+      reply_to: visitorEmail,
+    };
+
+    try {
+      // 1. Send the visitor's message to you (inbound)
+      const inbound = emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_INBOUND,
+        params,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      // 2. Send a confirmation back to the visitor (auto-reply) — same params
+      const autoReply = emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_AUTOREPLY,
+        params,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      // Wait for the inbound send first (this is the critical one); the
+      // auto-reply is best-effort — if it fails, don't block the success UI.
+      const inboundResult = await inbound;
+      if (inboundResult.status !== 200) {
+        throw new Error(
+          inboundResult.text || "Couldn't deliver your message. Please try again."
+        );
+      }
+
+      // Fire-and-forget the auto-reply; surface a soft warning if it fails.
+      autoReply.catch((err: unknown) => {
+        const message =
+          err instanceof Error ? err.message : "Auto-reply could not be sent.";
+        console.warn("Auto-reply failed:", message);
+      });
+
+      setSubmitted(true);
+      form.reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setError(message);
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
@@ -251,6 +312,24 @@ export default function Contact() {
                       <p className="text-sm font-bold text-emerald-100">
                         Message sent &mdash; I&apos;ll reply soon!
                       </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <AnimatePresence>
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 16, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                    className="absolute inset-x-7 bottom-7 sm:inset-x-9"
+                    role="alert"
+                  >
+                    <div className="flex items-center gap-3 rounded-2xl border border-rose-400/30 bg-rose-400/10 px-5 py-3.5 backdrop-blur-md">
+                      <AlertCircle size={20} className="text-rose-300" />
+                      <p className="text-sm font-bold text-rose-100">{error}</p>
                     </div>
                   </motion.div>
                 )}
