@@ -21,6 +21,7 @@ export interface ProjectData {
   glow: string;
   accent: string;
   icon: ReactNode;
+  image?: string;
 }
 
 export const featuredProjects: ProjectData[] = [
@@ -48,6 +49,7 @@ export const featuredProjects: ProjectData[] = [
     glow: "from-primary/40 via-secondary/20 to-transparent",
     accent: "from-primary to-secondary",
     icon: <LuBrain />,
+    image: "/images/projects/career-sphere.png",
   },
   {
     title: "ExamHub",

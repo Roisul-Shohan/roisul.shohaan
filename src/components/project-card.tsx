@@ -46,11 +46,19 @@ export default function ProjectCard({
 
             <div className="relative mb-5 flex h-32 items-center justify-center overflow-hidden rounded-2xl border border-white/5 bg-linear-to-br from-primary/15 to-secondary/15">
               <div className="grid-bg absolute inset-0 opacity-30" />
-              <div
-                className={`text-6xl bg-linear-to-br ${project.accent} bg-clip-text text-transparent transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
-              >
-                {project.icon}
-              </div>
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <div
+                  className={`text-6xl bg-linear-to-br ${project.accent} bg-clip-text text-transparent transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                >
+                  {project.icon}
+                </div>
+              )}
             </div>
 
             <h3 className="font-display text-xl font-extrabold text-white">
