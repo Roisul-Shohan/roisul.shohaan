@@ -43,7 +43,7 @@ export const featuredProjects: ProjectData[] = [
       "PostgreSQL",
       "NextAuth.js",
     ],
-    liveUrl: "https://career-sphere-ik2l.vercel.app/",
+    liveUrl: "https://career-sphere-alpha.vercel.app/",
     repoUrl: "https://github.com/Roisul-Shohan/CAREER-SPHERE",
     glow: "from-primary/40 via-secondary/20 to-transparent",
     accent: "from-primary to-secondary",
