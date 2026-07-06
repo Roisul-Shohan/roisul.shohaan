@@ -75,6 +75,21 @@ export default function Contact() {
     setPending(true);
     setError(null);
 
+    // Pre-flight: catch the #1 cause of failure — missing env vars on the deployed build.
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_PUBLIC_KEY || !EMAILJS_TEMPLATE_INBOUND) {
+      const missing = [
+        !EMAILJS_SERVICE_ID && "service id",
+        !EMAILJS_PUBLIC_KEY && "public key",
+        !EMAILJS_TEMPLATE_INBOUND && "inbound template id",
+        !EMAILJS_TEMPLATE_AUTOREPLY && "auto-reply template id",
+      ].filter(Boolean);
+      setError(
+        `EmailJS is not configured (missing: ${missing.join(", ")}). Add NEXT_PUBLIC_EMAILJS_* to Vercel env vars and redeploy.`
+      );
+      setPending(false);
+      return;
+    }
+
     const form = event.target as HTMLFormElement;
     const data = new FormData(form);
     const visitorEmail = String(data.get("email") ?? "").trim();
@@ -110,7 +125,8 @@ export default function Contact() {
       const inboundResult = await inbound;
       if (inboundResult.status !== 200) {
         throw new Error(
-          inboundResult.text || "Couldn't deliver your message. Please try again."
+          inboundResult.text ||
+            `EmailJS returned status ${inboundResult.status}. Check template variables and service connection.`
         );
       }
 
@@ -125,8 +141,14 @@ export default function Contact() {
       form.reset();
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err: unknown) {
-      const message =
-        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      // EmailJS sends back errors with `text` and `status`; surface both.
+      let message = "Something went wrong. Please try again.";
+      if (typeof err === "object" && err !== null) {
+        const e = err as { text?: string; message?: string; status?: number };
+        if (e.text) message = `EmailJS: ${e.text}`;
+        else if (e.message) message = e.message;
+        console.error("EmailJS error:", err);
+      }
       setError(message);
     } finally {
       setPending(false);

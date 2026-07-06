@@ -64,11 +64,12 @@ export const featuredProjects: ProjectData[] = [
       "Dashboard for learner progress",
     ],
     techStack: ["Next.js", "TypeScript", "Express", "MongoDB", "Tailwind CSS"],
-    liveUrl: "https://example.com",
+    liveUrl: "https://examhub-five.vercel.app/",
     repoUrl: "https://github.com/Roisul-Shohan",
     glow: "from-secondary/40 via-primary/20 to-transparent",
     accent: "from-secondary to-primary",
     icon: <LuClipboardCheck />,
+    image: "/images/projects/exam-hub.png",
   },
   {
     title: "Learning Management System",
